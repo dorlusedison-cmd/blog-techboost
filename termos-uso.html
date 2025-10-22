@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - TechBoost</title>
+    
+    <meta name="description" content="Leia os termos e condições de uso do blog TechBoost.">
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ... (Tous vos styles CSS restent identiques) ... */
+        :root {
+            --blue: #007bff;
+            --violet: #7b2cbf;
+            --light-gray: #f4f4f4;
+            --dark-text: #222;
+            --light-text: #f9f9f9;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --gradient: linear-gradient(45deg, var(--blue), var(--violet));
+        }
+        [data-theme="dark"] {
+            --light-gray: #2a2a2a;
+            --dark-text: #f4f4f4;
+            --light-text: #f9f9f9;
+            --bg-color: #1a1a1a;
+            --card-bg: #252525;
+            --header-bg: rgba(25, 25, 25, 0.95);
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4 { font-weight: 700; color: var(--dark-text); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.25rem; margin: 0.5rem 0; }
+        a { color: var(--blue); text-decoration: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark-text); }
+        .logo i { color: var(--blue); }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { color: var(--dark-text); font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--blue); }
+        #darkModeToggle { background: none; border: none; color: var(--dark-text); font-size: 1.2rem; cursor: pointer; }
+        #menu-toggle { display: none; background: none; border: none; color: var(--dark-text); font-size: 1.5rem; cursor: pointer; }
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 2rem;
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
+        }
+        .social-links { margin-bottom: 1rem; }
+        .social-links a { font-size: 1.8rem; color: var(--dark-text); margin: 0 0.75rem; transition: color 0.3s ease; }
+        .social-links a:hover { color: var(--blue); }
+        .footer-links { margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8; }
+        .footer-links a { margin: 0 0.5rem; }
+        .page-header {
+            text-align: center;
+            padding: 4rem 5% 2rem 5%;
+            background-color: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-header h1 {
+            font-size: 2.8rem;
+        }
+        .page-content {
+            padding: 3rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            margin-top: -2rem; 
+            position: relative;
+            z-index: 10;
+        }
+        .page-content p, .page-content li {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .page-content h2 {
+            font-size: 1.8rem;
+            color: var(--blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-content ul {
+            padding-left: 1.5rem;
+        }
+        .page-content strong {
+            color: var(--dark-text);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 60px; right: 0; width: 100%;
+                background-color: var(--header-bg); flex-direction: column; align-items: center;
+                padding: 1rem 0; gap: 1.5rem; box-shadow: 0 10px 20px var(--shadow-color);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            #menu-toggle { display: block; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> TechBoost
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="categoria-software.html">Softwares</a></li>
+                <li><a href="categoria-ia.html">IA</a></li>
+                <li><a href="index.html#recursos">Recursos</a></li>
+            </ul>
+            <div>
+                <button id="darkModeToggle" title="Mudar tema" aria-label="Alternar modo claro e escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="menu-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1><i class="fa-solid fa-file-signature"></i> Termos de Uso</h1>
+            <p style="font-size: 1.1rem; opacity: 0.8; margin-top: 0.5rem;">Última atualização: [Data de Hoje]</p>
+        </section>
+
+        <section class="page-content">
+            <h2>1. Aceitação dos Termos</h2>
+            <p>Ao acessar o site <strong>TechBoost</strong> ("Site"), você concorda em cumprir estes termos de uso, todas as leis e regulamentos aplicáveis e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site.</p>
+
+            <h2>2. Propriedade Intelectual e Uso do Conteúdo</h2>
+            <p>Todo o conteúdo publicado neste Site, incluindo artigos, imagens, gráficos e logotipos, é de propriedade do TechBoost e protegido por leis de direitos autorais.</p>
+            <p>É concedida permissão para visualizar o material no Site apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título, e sob esta licença você <strong>não pode</strong>:</p>
+            <ul>
+                <li>Modificar ou copiar os materiais;</li>
+                <li>Usar os materiais para qualquer finalidade comercial ou para exibição pública (comercial ou não comercial);</li>
+                <li>Remover quaisquer direitos autorais ou outras notações de propriedade dos materiais;</li>
+                <li>Tentar descompilar ou fazer engenharia reversa de qualquer software contido no site TechBoost.</li>
+            </ul>
+
+            <h2>3. Isenção de Garantias</h2>
+            <p>O conteúdo fornecido no TechBoost é apenas para fins informativos e educacionais. As informações são fornecidas "como estão", sem garantias de qualquer tipo, expressas ou implícitas.</p>
+            <p>Não garantimos a precisão, os resultados prováveis ou a confiabilidade do uso dos materiais em seu site ou de outra forma relacionados a esses materiais ou em sites vinculados a este site. As dicas de produtividade e análises de software refletem opiniões e testes pessoais, e seu resultado pode variar.</p>
+
+            <h2>4. Limitação de Responsabilidade</h2>
+            <p>Em nenhum caso o TechBoost ou seus proprietários serão responsáveis por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro, ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais no TechBoost, mesmo que o TechBoost ou um representante autorizado tenha sido notificado oralmente ou por escrito da possibilidade de tais danos.</p>
+
+            <h2>5. Links Externos</h2>
+            <p>O TechBoost contém links para sites de terceiros (links externos) que não são operados por nós. Não temos controle e não assumimos responsabilidade pelo conteúdo, políticas de privacidade ou práticas de quaisquer sites ou serviços de terceiros. A inclusão de qualquer link não implica endosso pelo TechBoost.</p>
+
+            <h2>6. Modificações dos Termos</h2>
+            <p>Reservamo-nos o direito de revisar e modificar estes termos de uso a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual destes termos de uso.</p>
+
+            <h2>7. Lei Aplicável</h2>
+            <p>Estes termos e condições são regidos e interpretados de acordo com as leis do Brasil e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais desse país.</p>
+
+            <h2>8. Contato</h2>
+            <p>Qualquer dúvida sobre estes Termos de Uso deve ser enviada através da nossa <a href="contato.html">página de contato</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" title="YouTube" aria-label="Visite nosso YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" title="Instagram" aria-label="Visite nosso Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" title="TikTok" aria-label="Visite nosso TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" title="LinkedIn" aria-label="Visite nosso LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" title="Twitter (X)" aria-label="Visite nosso Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p class="footer-links">
+            <a href="politica-privacidade.html">Política de Privacidade</a> | 
+            <a href="termos-uso.html">Termos de Uso</a> |
+            <a href="contato.html">Contato</a>
+        </p>
+        <p>&copy; 2025 TechBoost. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const toggleIcon = darkModeToggle.querySelector('i');
+            const htmlElement = document.documentElement;
+
+            const applyTheme = (theme) => {
+                htmlElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    toggleIcon.classList.remove('fa-moon');
+                    toggleIcon.classList.add('fa-sun');
+                } else {
+                    toggleIcon.classList.remove('fa-sun');
+                    toggleIcon.classList.add('fa-moon');
+                }
+                localStorage.setItem('theme', theme);
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let currentTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+            applyTheme(currentTheme);
+
+            darkModeToggle.addEventListener('click', () => {
+                const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            const menuToggleIcon = menuToggle.querySelector('i');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuToggleIcon.classList.remove('fa-bars');
+                    menuToggleIcon.classList.add('fa-xmark');
+                    menuToggle.setAttribute('aria-label', 'Fechar menu');
+                } else {
+                    menuToggleIcon.classList.remove('fa-xmark');
+                    menuToggleIcon.classList.add('fa-bars');
+                    menuToggle.setAttribute('aria-label', 'Abrir menu');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

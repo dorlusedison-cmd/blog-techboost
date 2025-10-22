@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBoost - Software & Dicas de Produtividade</title>
+    
+    <meta name="description" content="Descubra os melhores softwares e dicas de produtividade. Guias, comparativos e ferramentas testadas para você.">
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <meta property="og:title" content="TechBoost - Software & Dicas de Produtividade">
+    <meta property="og:description" content="Descubra os melhores softwares e dicas de produtividade.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=TechBoost+Blog">
+    <meta property="og:url" content="https://www.votre-site.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ... (Tous vos styles CSS restent identiques) ... */
+        :root {
+            --blue: #007bff;
+            --violet: #7b2cbf;
+            --light-gray: #f4f4f4;
+            --dark-text: #222;
+            --light-text: #f9f9f9;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --gradient: linear-gradient(45deg, var(--blue), var(--violet));
+        }
+        [data-theme="dark"] {
+            --light-gray: #2a2a2a;
+            --dark-text: #f4f4f4;
+            --light-text: #f9f9f9;
+            --bg-color: #1a1a1a;
+            --card-bg: #252525;
+            --header-bg: rgba(25, 25, 25, 0.95);
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4 { font-weight: 700; color: var(--dark-text); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.25rem; margin: 0.5rem 0; }
+        h4 { font-size: 1.3rem; }
+        a { color: var(--blue); text-decoration: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark-text); }
+        .logo i { color: var(--blue); }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { color: var(--dark-text); font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--blue); }
+        #darkModeToggle { background: none; border: none; color: var(--dark-text); font-size: 1.2rem; cursor: pointer; }
+        #menu-toggle { display: none; background: none; border: none; color: var(--dark-text); font-size: 1.5rem; cursor: pointer; }
+        .hero {
+            text-align: center;
+            padding: 5rem 5%;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h1 { max-width: 700px; line-height: 1.2; }
+        .hero p {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--blue);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glow { box-shadow: 0 0 15px var(--blue), 0 0 25px var(--blue); }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+        .glow:hover { box-shadow: 0 0 20px var(--violet), 0 0 35px var(--violet); }
+        .cta-button-secondary {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--blue);
+            color: var(--blue);
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .cta-button-secondary:hover {
+            background-color: var(--blue);
+            color: white;
+        }
+        .tip-of-the-day {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            max-width: 90%;
+            margin: -2rem auto 2rem auto; 
+            box-shadow: 0 4px 15px var(--shadow-color);
+            border: 1px solid var(--border-color);
+        }
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content { padding: 1.5rem; }
+        .card-content .category {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            color: #fff;
+            background-color: var(--category-color, var(--violet));
+        }
+        .card-content p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        .card-content .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--light-gray);
+            padding: 2rem 5%;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+        .stat-label {
+            font-size: 1rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+        #sobre {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+        .sobre-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .sobre-content img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover; /* S'assure que l'image remplit le cercle */
+            border: 4px solid var(--border-color);
+        }
+        .sobre-content h3 {
+            font-size: 1.75rem;
+            color: var(--blue);
+        }
+        .sobre-content p {
+            margin: 1rem 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+        .gradient-bg {
+            background: var(--gradient);
+            color: var(--light-text);
+            border-radius: 15px;
+            text-align: center;
+        }
+        .gradient-bg h2 { color: var(--light-text); }
+        .gradient-bg p {
+            color: var(--light-text);
+            opacity: 0.9;
+        }
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .newsletter-form input[type="email"] {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            width: 300px;
+            max-width: 100%;
+        }
+        .newsletter-form .cta-button {
+            margin-top: 0;
+            background-color: var(--light-text);
+            color: var(--blue);
+            cursor: pointer;
+            border: none;
+        }
+        .newsletter-form .cta-button:hover { background-color: #f0f0f0; }
+        .bonus-download {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        #recursos {
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
+        }
+        #recursos h2 {
+            text-align: center;
+        }
+        .tool-category {
+            margin-bottom: 3rem;
+        }
+        .tool-category h3 {
+            border-bottom: 2px solid var(--blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+        .tool-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .tool-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        .tool-card h4 {
+            font-size: 1.3rem;
+            color: var(--dark-text);
+        }
+        .tool-card p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin: 0.5rem 0 1rem 0;
+        }
+        .tool-card a {
+            font-weight: 600;
+        }
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 2rem;
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
+        }
+        .social-links { margin-bottom: 1rem; }
+        .social-links a {
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin: 0 0.75rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover { color: var(--blue); }
+        .footer-links {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .footer-links a {
+            margin: 0 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                background-color: var(--header-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px var(--shadow-color);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            #menu-toggle {
+                display: block;
+            }
+            .hero h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            .sobre-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .sobre-content img {
+                width: 150px;
+                height: 150px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .newsletter-form input[type="email"] {
+                width: 100%;
+            }
+            .newsletter-form .cta-button {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> TechBoost
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="categoria-software.html">Softwares</a></li>
+                <li><a href="categoria-ia.html">IA</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+            </ul>
+            
+            <div>
+                <button id="darkModeToggle" title="Mudar tema" aria-label="Alternar modo claro e escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="menu-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Descubra os melhores softwares e dicas para alavancar sua produtividade 🔥</h1>
+            <p>Guias, comparativos e ferramentas testadas para você.</p>
+            <a href="#astuces" class="cta-button glow">Descubra as dicas agora</a>
+        </section>
+
+        <section class="tip-of-the-day">
+            <p>
+                💡 <strong>Dica do dia:</strong> Você sabia que pode converter uma imagem em texto gratuitamente com este site? 
+                <a href="dica-ocr.html">[Descobrir]</a>
+            </p>
+        </section>
+
+        <section id="astuces" class="article-section">
+            <h2><i class="fa-solid fa-fire"></i> Artigos populares</h2>
+            <div class="article-grid">
+                
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Top+10+Softwares" alt="Ilustração de um computador com ícones de software">
+                    <div class="card-content">
+                        <span class="category" style="--category-color: #007bff;">Softwares</span>
+                        <h3>Top 10 softwares gratuitos que você precisa testar em 2025</h3>
+                        <p>Uma lista indispensável para equipar sua máquina sem gastar um centavo.</p>
+                        <a href="artigo-top-10-software.html" class="read-more">Leia mais...</a>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Guia+ChatGPT" alt="Ilustração do cérebro de uma inteligência artificial">
+                    <div class="card-content">
+                        <span class="category" style="--category-color: #7b2cbf;">Inteligência Artificial</span>
+                        <h3>O Guia Visual para dominar o ChatGPT em 10min</h3>
+                        <p>De prompts avançados a truques escondidos, torne-se um mestre da IA.</p>
+                        <a href="artigo-guia-chatgpt.html" class="read-more">Leia mais...</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://via.placeholder.com/400x200.png?text=Produtividade" alt="Um checklist de produtividade sendo marcado">
+                    <div class="card-content">
+                        <span class="category" style="--category-color: #ff6347;">Produtividade</span>
+                        <h3>Antes/Depois: Testei 3 ferramentas de organização</h3>
+                        <p>Descubra como reorganizei meu fluxo de trabalho e ganhei 5h por semana.</p>
+                        <a href="artigo-ferramentas-organizacao.html" class="read-more">Leia mais...</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="stats">
+             <div class="stat-item">
+                <span class="stat-number">+500</span>
+                <span class="stat-label">Dicas testadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">+120</span>
+                <span class="stat-label">Softwares analisados</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">+10K</span>
+                <span class="stat-label">Leitores/Mês</span>
+            </div>
+        </section>
+        
+        <section id="recursos">
+            <h2><i class="fa-solid fa-screwdriver-wrench"></i> Recursos Recomendados</h2>
+            
+            <div class="tool-category">
+                <h3><i class="fa-solid fa-star"></i> Meus Favoritos</h3>
+                <div class="tool-list">
+                    <div class="tool-card">
+                        <h4>Nome do Software (Ex: Notion)</h4>
+                        <p>O melhor app para organização pessoal e profissional. (Link afiliado)</p>
+                        <a href="https://notion.so" target="_blank" rel="noopener sponsored">Visitar Site</a>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Nome do Software (Ex: VS Code)</h4>
+                        <p>O melhor editor de código, gratuito e poderoso.</p>
+                        <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Baixar grátis</a>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Nome do Software (Ex: Figma)</h4>
+                        <p>Para design de UI/UX, colaborativo e baseado na web.</p>
+                        <a href="https://figma.com" target="_blank" rel="noopener">Visitar Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-category">
+                <h3><i class="fa-solid fa-robot"></i> Ferramentas IA Gratuitas</h3>
+                <div class="tool-list">
+                    <div class="tool-card">
+                        <h4>Nome da Ferramenta IA</h4>
+                        <p>Descrição da ferramenta de IA (ex: para gerar imagens).</p>
+                        <a href="url-ferramenta-ia.com" target="_blank" rel="noopener">Testar grátis</a>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Nome da Ferramenta IA</h4>
+                        <p>Descrição da ferramenta de IA (ex: para resumir textos).</p>
+                        <a href="url-outra-ia.com" target="_blank" rel="noopener">Testar grátis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-signup gradient-bg">
+            <h2>Junte-se à "TechBoost" 💌</h2>
+            <p>Toda semana, receba 3 dicas e 1 software grátis para alavancar sua produtividade.</p>
+            <form class="newsletter-form" action="https://votre-service-email.com/subscribe" method="POST">
+                <input type="email" name="email" placeholder="Seu melhor e-mail..." required aria-label="Seu melhor e-mail">
+                <button type="submit" class="cta-button">Inscrever-se!</button>
+            </form>
+            <p class="bonus-download">
+                🧠 Ao se inscrever, receba o "Guia gratuito dos 15 softwares indispensáveis 2025"
+            </p>
+        </section>
+        
+        <section id="sobre">
+            <div class="sobre-content">
+                <img src="foto-perfil.jpg" alt="Foto de [Seu Nome], autor do blog TechBoost">
+                <div class="sobre-text">
+                    <h3><i class="fa-solid fa-user-astronaut"></i> Sobre Mim</h3>
+                    <p>Oi, eu sou <strong>[Seu Nome]</strong>, um entusiasta de tecnologia apaixonado por produtividade. Minha missão é testar e filtrar o ruído, trazendo para você apenas os softwares e dicas que realmente funcionam.</p>
+                    <p>Este blog é o resultado de +500 horas de testes para economizar o seu tempo.</p>
+                    <a href="sobre-mim.html" class="cta-button-secondary">Conheça minha história</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" title="YouTube" aria-label="Visite nosso YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" title="Instagram" aria-label="Visite nosso Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" title="TikTok" aria-label="Visite nosso TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" title="LinkedIn" aria-label="Visite nosso LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" title="Twitter (X)" aria-label="Visite nosso Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p class="footer-links">
+            <a href="politica-privacidade.html">Política de Privacidade</a> | 
+            <a href="termos-uso.html">Termos de Uso</a> |
+            <a href="contato.html">Contato</a>
+        </p>
+        <p>&copy; 2025 TechBoost. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* ======== GESTIONNAIRE DU MODE SOMBRE ======== */
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const toggleIcon = darkModeToggle.querySelector('i');
+            const htmlElement = document.documentElement;
+
+            const applyTheme = (theme) => {
+                htmlElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    toggleIcon.classList.remove('fa-moon');
+                    toggleIcon.classList.add('fa-sun');
+                } else {
+                    toggleIcon.classList.remove('fa-sun');
+                    toggleIcon.classList.add('fa-moon');
+                }
+                localStorage.setItem('theme', theme);
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            let currentTheme;
+            if (savedTheme) {
+                currentTheme = savedTheme;
+            } else {
+                currentTheme = prefersDark ? 'dark' : 'light';
+            }
+            
+            applyTheme(currentTheme);
+
+            darkModeToggle.addEventListener('click', () => {
+                const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+
+            /* GESTIONNAIRE DU MENU MOBILE */
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            const menuToggleIcon = menuToggle.querySelector('i');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+
+                if (navLinks.classList.contains('active')) {
+                    menuToggleIcon.classList.remove('fa-bars');
+                    menuToggleIcon.classList.add('fa-xmark');
+                    menuToggle.setAttribute('aria-label', 'Fechar menu');
+                } else {
+                    menuToggleIcon.classList.remove('fa-xmark');
+                    menuToggleIcon.classList.add('fa-bars');
+                    menuToggle.setAttribute('aria-label', 'Abrir menu');
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

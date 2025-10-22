@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - TechBoost</title>
+    
+    <meta name="description" content="Conheça a história e a missão por trás do blog TechBoost.">
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ... (Tous vos styles CSS restent identiques) ... */
+        :root {
+            --blue: #007bff;
+            --violet: #7b2cbf;
+            --light-gray: #f4f4f4;
+            --dark-text: #222;
+            --light-text: #f9f9f9;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.05);
+            --gradient: linear-gradient(45deg, var(--blue), var(--violet));
+        }
+        [data-theme="dark"] {
+            --light-gray: #2a2a2a;
+            --dark-text: #f4f4f4;
+            --light-text: #f9f9f9;
+            --bg-color: #1a1a1a;
+            --card-bg: #252525;
+            --header-bg: rgba(25, 25, 25, 0.95);
+            --border-color: #444;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4 { font-weight: 700; color: var(--dark-text); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.25rem; margin: 0.5rem 0; }
+        a { color: var(--blue); text-decoration: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        section { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark-text); }
+        .logo i { color: var(--blue); }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; }
+        .nav-links a { color: var(--dark-text); font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--blue); }
+        #darkModeToggle { background: none; border: none; color: var(--dark-text); font-size: 1.2rem; cursor: pointer; }
+        #menu-toggle { display: none; background: none; border: none; color: var(--dark-text); font-size: 1.5rem; cursor: pointer; }
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            margin-top: 2rem;
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--border-color);
+        }
+        .social-links { margin-bottom: 1rem; }
+        .social-links a { font-size: 1.8rem; color: var(--dark-text); margin: 0 0.75rem; transition: color 0.3s ease; }
+        .social-links a:hover { color: var(--blue); }
+        .footer-links { margin-bottom: 1rem; font-size: 0.9rem; opacity: 0.8; }
+        .footer-links a { margin: 0 0.5rem; }
+        .page-header {
+            text-align: center;
+            padding: 4rem 5% 2rem 5%;
+            background-color: var(--light-gray);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .page-header h1 {
+            font-size: 2.8rem;
+        }
+        .page-content {
+            padding: 3rem 5%;
+            max-width: 800px; 
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            margin-top: -2rem; 
+            position: relative;
+            z-index: 10;
+        }
+        .page-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        .page-content h2 {
+            font-size: 1.8rem;
+            color: var(--blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-content img.inline-image {
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            width: 100%;
+            height: auto; /* Ajusté pour la photo de profil */
+            max-height: 400px; /* Limite la hauteur */
+            object-fit: cover;
+            object-position: center top; /* Se concentre sur le haut de l'image */
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 60px; right: 0; width: 100%;
+                background-color: var(--header-bg); flex-direction: column; align-items: center;
+                padding: 1rem 0; gap: 1.5rem; box-shadow: 0 10px 20px var(--shadow-color);
+                border-bottom: 1px solid var(--border-color);
+            }
+            .nav-links.active { display: flex; }
+            #menu-toggle { display: block; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bolt"></i> TechBoost
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="categoria-software.html">Softwares</a></li>
+                <li><a href="categoria-ia.html">IA</a></li>
+                <li><a href="index.html#recursos">Recursos</a></li>
+            </ul>
+            <div>
+                <button id="darkModeToggle" title="Mudar tema" aria-label="Alternar modo claro e escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="menu-toggle" aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1><i class="fa-solid fa-user-astronaut"></i> Sobre Mim</h1>
+            <p style="font-size: 1.2rem; opacity: 0.8; margin-top: 0.5rem;">A história por trás do TechBoost</p>
+        </section>
+
+        <section class="page-content">
+            <h2>Olá, eu sou [Seu Nome]!</h2>
+            <p>Bem-vindo ao TechBoost! Eu sou <strong>[Seu Nome]</strong>, um entusiasta de tecnologia, desenvolvedor [Sua Profissão, ex: front-end, de software] e um eterno otimista sobre como a ferramenta certa pode transformar nosso dia a dia.</p>
+            <p>Comecei este blog por uma razão simples: eu estava cansado de "listas" de produtividade genéricas e de softwares que prometiam revolucionar meu fluxo de trabalho, mas que acabavam me custando mais tempo para configurar do que o tempo que economizavam.</p>
+            
+            <img src="foto-perfil.jpg" alt="Foto de [Seu Nome], autor do blog" class="inline-image">
+
+            <h2>A Missão do TechBoost</h2>
+            <p>A missão deste blog é clara: <strong>testar, filtrar e entregar apenas as melhores dicas e softwares que realmente funcionam.</strong></p>
+            <p>Cada artigo que você lê aqui é o resultado de horas (às vezes dias!) de testes reais. Eu instalo, configuro, uso no meu próprio trabalho e comparo cada ferramenta para que você não precise fazer isso.</p>
+            <p>Este blog é para você se:</p>
+            <ul>
+                <li>Você adora descobrir novos softwares.</li>
+                <li>Você quer otimizar seu fluxo de trabalho, seja para estudar, trabalhar ou em projetos pessoais.</li>
+                <li>Você está curioso sobre Inteligência Artificial e como ela pode ser usada na prática, sem complicação.</li>
+            </ul>
+
+            <h2>Obrigado por estar aqui</h2>
+            <p>O TechBoost é uma comunidade, e eu adoraria ouvir de você. Sinta-se à vontade para me enviar uma mensagem através da <a href="contato.html">página de contato</a> ou me encontrar nas redes sociais.</p>
+            <p>Espero que encontre aqui algo que torne seu dia um pouco mais produtivo!</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" title="YouTube" aria-label="Visite nosso YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" title="Instagram" aria-label="Visite nosso Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" title="TikTok" aria-label="Visite nosso TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" title="LinkedIn" aria-label="Visite nosso LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" title="Twitter (X)" aria-label="Visite nosso Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p class="footer-links">
+            <a href="politica-privacidade.html">Política de Privacidade</a> | 
+            <a href="termos-uso.html">Termos de Uso</a> |
+            <a href="contato.html">Contato</a>
+        </p>
+        <p>&copy; 2025 TechBoost. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const toggleIcon = darkModeToggle.querySelector('i');
+            const htmlElement = document.documentElement;
+
+            const applyTheme = (theme) => {
+                htmlElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    toggleIcon.classList.remove('fa-moon');
+                    toggleIcon.classList.add('fa-sun');
+                } else {
+                    toggleIcon.classList.remove('fa-sun');
+                    toggleIcon.classList.add('fa-moon');
+                }
+                localStorage.setItem('theme', theme);
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            let currentTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+            applyTheme(currentTheme);
+
+            darkModeToggle.addEventListener('click', () => {
+                const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            const menuToggleIcon = menuToggle.querySelector('i');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    menuToggleIcon.classList.remove('fa-bars');
+                    menuToggleIcon.classList.add('fa-xmark');
+                    menuToggle.setAttribute('aria-label', 'Fechar menu');
+                } else {
+                    menuToggleIcon.classList.remove('fa-xmark');
+                    menuToggleIcon.classList.add('fa-bars');
+                    menuToggle.setAttribute('aria-label', 'Abrir menu');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
