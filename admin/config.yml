@@ -1,5 +1,5 @@
 # Fichier : admin/config.yml
-# ATTENTION : CE CODE FERA REVENIR LE PROBLÈME D'AFFICHAGE BRUT !
+# VERSION CORRECTE (pour fonctionner sans SSG)
 
 backend:
   name: git-gateway
@@ -13,68 +13,12 @@ collections:
     label: "Artigos do Blog" # Nom visible dans l'interface
     folder: "posts" # Il créera un dossier "posts" pour vos articles
     create: true
-    slug: "{{slug}}" # Le nom du fichier sera basé sur le titre que vous entrez (ou le slug)
+    slug: "{{slug}}" # Le nom du fichier sera basé sur le slug que vous entrez
     extension: "html" # Il créera des fichiers .html
-    format: "frontmatter" # Il mettra les métadonnées en haut
-    editor:
-      preview: false
-      
-    # Ce sont les champs que vous verrez dans l'éditeur
+    # PAS DE LIGNE format: ICI
+    
+    # Nous n'utilisons qu'UN SEUL champ : le corps HTML complet
     fields:
-      - { label: "Titre de l'article", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      # Important : Si vous utilisez un lien externe, changez widget: "image" par widget: "string"
-      - { label: "Image Principale (Lien URL ou Uploader)", name: "thumbnail", widget: "image" } 
-      - { label: "Catégorie (ex: Softwares, IA)", name: "category", widget: "string" }
-      - { label: "Corps de l'article (Markdown)", name: "body", widget: "markdown" }
-
-    # Le modèle HTML qui sera utilisé pour créer le fichier (mais les {{vars}} ne seront pas remplacées par le navigateur)
-    body: |
-      <!DOCTYPE html>
-      <html lang="pt-BR">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>{{title}} - TechBoost</title>
-          
-          <meta property="og:title" content="{{title}}">
-          <meta property="og:image" content="{{thumbnail}}"> 
-          
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-          
-          <style>
-            :root { /* ... */ } 
-            /* ... */
-            body { /* ... */ }
-            /* ... et tous les autres styles ... */
-          </style>
-
-      </head>
-      <body>
-          <header>
-            </header>
-
-          <main>
-            <article class="article-container">
-              <header class="article-header">
-                <h1>{{title}}</h1>
-                <div class="article-meta">
-                  Publicado em <span class="category">{{category}}</span> 
-                  por <strong>[Seu Nome]</strong> em <time datetime="{{date}}">{{date}}</time> </div>
-              </header>
-              
-              <img src="{{thumbnail}}" alt="{{title}}" class="article-featured-image">
-              
-              <section class="article-content">
-                {{body}} </section>
-            </article>
-          </main>
-
-          <footer>
-            </footer>
-          
-          <script>
-            // ... (votre script ici) ...
-          </script>
-      </body>
-      </html>
+      - label: "Code HTML Complet de l'Article"
+        name: "body"
+        widget: "markdown" # Permet d'éditer le HTML
