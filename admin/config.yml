@@ -1,5 +1,5 @@
 # Fichier : admin/config.yml
-# NOUVELLE VERSION CORRIGÉE (celle à utiliser)
+# VERSION CORRIGÉE (la bonne cette fois !)
 
 backend:
   name: git-gateway
@@ -15,8 +15,7 @@ collections:
     create: true
     slug: "{{slug}}" # Le nom du fichier sera basé sur le slug que vous entrez
     extension: "html" # Il créera des fichiers .html
-    # Ce format sauvegarde le contenu directement comme un fichier HTML complet
-    format: "html" 
+    # PAS DE LIGNE format: ICI
     
     # Nous n'utilisons qu'UN SEUL champ : le corps HTML complet
     fields:
